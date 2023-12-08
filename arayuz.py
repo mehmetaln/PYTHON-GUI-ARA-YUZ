@@ -67,8 +67,11 @@ c3.pack(anchor=NW,pady=5,padx=25)
 
 Label(frame_alt_sag, text="Hatırlatma Mesajı  ",bg='#add8e6', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
 
-metin_alani = Text(frame_alt_sag,height=9 ,width=  )
-
+metin_alani = Text(frame_alt_sag,height=9 ,width=50)
+metin_alani.tag_configure('style',foreground='#bfbfbf',font=('Verdana',9,'bold')) # özellik vermke için kullandığız yer
+metin_alani.pack()
+karsilasma_metni = "Mesajını buraya gir..."
+metin_alani.insert(END,karsilasma_metni,'style')
 
 
 
