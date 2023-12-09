@@ -63,7 +63,10 @@ c3 = Checkbutton(frame_alt_sol,text="Aynı gün", variable=var1, onvalue=1, offv
 c3.pack(anchor=NW,pady=5,padx=25)
 
 
-
+    
+    def gonder():
+    pass
+    return
 
 Label(frame_alt_sag, text="Hatırlatma Mesajı  ",bg='#add8e6', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
 
@@ -74,8 +77,9 @@ karsilasma_metni = "Mesajını buraya gir..."
 metin_alani.insert(END,karsilasma_metni,'style')
 
 
+gonder_butonu = Button(frame_alt_sag,text="Gönder", command=gonder)# command direktif verir bunu bir fonksiyon yaratmak için kullanacağız 
 
-
+gonder_butonu.pack(anchor=S)
 
 ############3 UNDER SİDE END ###########################################################################
 
