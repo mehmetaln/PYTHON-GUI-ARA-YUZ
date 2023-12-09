@@ -13,14 +13,14 @@ canvas.pack()
 # Frame  ara yüz içerisinde yapıları yapabilmemiz için kullanmamız gerek frame yapısan geçtikten sonra master yerine frame yazabilirzi fraameler kendi içerisinde
 # ana rolu oynayabiliyorlar
 ##########################################################################3 UP SİDE START ###########################################################################
-frame_ust = Frame(master,bg='#add8e6')
+frame_ust = Frame(master,bg='#8b658b')
 frame_ust.place(relx=0.1,rely=0.1,relwidth=0.8,  relheight=0.1)           
-frame_alt_sol = Frame(master,bg='#add8e6')
+frame_alt_sol = Frame(master,bg='#8b658b')
 frame_alt_sol.place(relx=0.1,rely=0.21,relwidth=0.23,  relheight=0.5)
-frame_alt_sag = Frame(master,bg='#add8e6')
+frame_alt_sag = Frame(master,bg='#8b658b')
 frame_alt_sag.place(relx=0.34,rely=0.21,relwidth=0.56,  relheight=0.5 )
 
-hatirlatma_tipi_etiket =Label(frame_ust,bg='#add8e6', text="Hatırlatma Tipi:", font='verdana 12 bold')
+hatirlatma_tipi_etiket =Label(frame_ust,bg='#8b658b', text="Hatırlatma Tipi:", font='verdana 12 bold')
 hatirlatma_tipi_etiket.pack(padx=10, pady=10, side=LEFT)
 
 hatirlatma_tipi_opsiyonel = StringVar(frame_ust) #StringVar sınıfı, kullanıcı arayüzü öğeleri (örneğin, etiketler, düğmeler,
@@ -37,7 +37,7 @@ hatirlatma_tarih_secici._top_cal.overrideredirect(False)
 #overrideredirect metodu, Tkinter kütüphanesindeki Tk sınıfına ait bir metottur. Bu metot, bir pencerenin pencere yöneticisi (window manager) 
 #tarafından yönetilip yönetilmeyeceğini belirlemek için kullanılır. Genellikle bu metot, pencereyi özel bir şekilde oluşturmak ve özelleştirmek amacıyla kullanılır.
 
-hatirlatma_tipi_etiket =Label(frame_ust,bg='#add8e6', text="Hatırlatma Tarihi:", font='verdana 12 bold')
+hatirlatma_tipi_etiket =Label(frame_ust,bg='#8b658b', text="Hatırlatma Tarihi:", font='verdana 12 bold')
 #label kullanıcı ara yüzünde bir etiket oluşturmak için kullanılan method  = "Label" kelimesi, bir kullanıcı arayüzünde metin veya resim gibi bilgileri 
 #göstermek için kullanılan bir kontrol öğesini ifade eder. genelde metin için kullanılır
 
@@ -45,30 +45,51 @@ hatirlatma_tipi_etiket.pack(padx=10, pady=10, side=RIGHT )
 ##########################################################################3 UP SİDE END ###########################################################################
 ##########################################################################3 UNDER SİDE START ###########################################################################
 
-Label(frame_alt_sol, text="Hatırlatma Yöntemi:  ",bg='#add8e6', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
+Label(frame_alt_sol, text="Hatırlatma Yöntemi:  ",bg='#8b658b', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
 
 var = IntVar()
-R1 = Radiobutton(frame_alt_sol,text="Sisteme Kaydet",variable=var,value=1,bg="#add8e6",font="verdana 10")
+R1 = Radiobutton(frame_alt_sol,text="Sisteme Kaydet",variable=var,value=1,bg="#8b658b",font="verdana 10")
 R1.pack(anchor=NW,pady=5,padx=15)
-R2 = Radiobutton(frame_alt_sol,text="E-postaya Kaydet",variable=var,value=2,bg="#add8e6",font="verdana 10")
+R2 = Radiobutton(frame_alt_sol,text="E-postaya Kaydet",variable=var,value=2,bg="#8b658b",font="verdana 10")
 R2.pack(anchor=NW,pady=5,padx=15)
 
 
 var1 = IntVar()
-c1 = Checkbutton(frame_alt_sol,text="Bir Hafta Önce", variable=var1, onvalue=1, offvalue=0, bg="#add8e6",font="verdana 10")
+c1 = Checkbutton(frame_alt_sol,text="Bir Hafta Önce", variable=var1, onvalue=1, offvalue=0, bg="#8b658b",font="verdana 10")
 c1.pack(anchor=NW,pady=5,padx=25)
-c2 = Checkbutton(frame_alt_sol,text="Bir Gün Önce", variable=var1, onvalue=1    , offvalue=0, bg="#add8e6",font="verdana 10")
+c2 = Checkbutton(frame_alt_sol,text="Bir Gün Önce", variable=var1, onvalue=1    , offvalue=0, bg="#8b658b",font="verdana 10")
 c2.pack(anchor=NW,pady=5,padx=25)
-c3 = Checkbutton(frame_alt_sol,text="Aynı gün", variable=var1, onvalue=1, offvalue=0, bg="#add8e6",font="verdana 10")
+c3 = Checkbutton(frame_alt_sol,text="Aynı gün", variable=var1, onvalue=1, offvalue=0, bg="#8b658b",font="verdana 10")
 c3.pack(anchor=NW,pady=5,padx=25)
 
 
-    
-    def gonder():
-    pass
-    return
+from tkinter import messagebox #alert oalrak kullanıcın onune çıkartmak için kullandığımız bir şey
+def gonder():
+    son_mesaj= ""
+    try:
+        if var.get():
+            if var.get() ==1:
+                son_mesaj += "Veriniz basariyla sisteme kaydedilmiştir."
+                
+                tip = hatirlatma_tipi_opsiyonel.get()  if hatirlatma_tipi_opsiyonel.get() =='' else 'Genel'   
+                tarih = hatirlatma_tarih_secici.get()
+                metin = metin_alani.get("1.0","end")
+                
+                with open("Hatırlatmalar.txt", "w") as dosya: #with ile dosyayı sadece kullanacağız zaman açmasını istiyoruz "w" ise yaz demek write anlaamıjna gelir
+                    dosya.write(f'{tip} kategorisinde, {tarih} tarihinde ve "{metin}" notuyla hatırlatma')
+                    dosya.close(    )
+            elif var.get()==2:
+                son_mesaj += "E-posta yoluyla hatırtlatma size ulaşacaktir."
+                
+            messagebox.showinfo("Başarili",son_mesaj) # ekrana basmak için kullandığımız yer
+        else:
+            messagebox.showwarning("Uyari","Lütfen seçim yap")
+    except:
+        messagebox.showerror("Basarisiz","İşlem Başarısız oldu")
+    finally:
+        master.destroy()
 
-Label(frame_alt_sag, text="Hatırlatma Mesajı  ",bg='#add8e6', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
+Label(frame_alt_sag, text="Hatırlatma Mesajı  ",bg='#8b658b', font='verdana 10 bold').pack(padx=10, pady=10,anchor=NW) # anchor bir pusula görevi gösteriri nereye yaslamamız gerektiğini söyler
 
 metin_alani = Text(frame_alt_sag,height=9 ,width=50)
 metin_alani.tag_configure('style',foreground='#bfbfbf',font=('Verdana',9,'bold')) # özellik vermke için kullandığız yer
