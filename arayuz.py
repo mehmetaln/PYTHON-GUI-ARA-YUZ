@@ -98,9 +98,9 @@ karsilasma_metni = "Mesajını buraya gir..."
 metin_alani.insert(END,karsilasma_metni,'style')
 
 
-gonder_butonu = Button(frame_alt_sag,text="Gönder", command=gonder)# command direktif verir bunu bir fonksiyon yaratmak için kullanacağız 
+# gonder_butonu = Button(frame_alt_sag,text="Gönder", command=gonder)# command direktif verir bunu bir fonksiyon yaratmak için kullanacağız 
 
-gonder_butonu.pack(anchor=S)
+# gonder_butonu.pack(anchor=S)
 
 ############3 UNDER SİDE END ###########################################################################
 
