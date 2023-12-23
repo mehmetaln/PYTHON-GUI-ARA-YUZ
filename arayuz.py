@@ -13,12 +13,12 @@ canvas.pack()
 # Frame  ara yüz içerisinde yapıları yapabilmemiz için kullanmamız gerek frame yapısan geçtikten sonra master yerine frame yazabilirzi fraameler kendi içerisinde
 # ana rolu oynayabiliyorlar
 ##########################################################################3 UP SİDE START ###########################################################################
-frame_ust = Frame(master,bg='#8b658b')
-frame_ust.place(relx=0.1,rely=0.1,relwidth=0.8,  relheight=0.1)           
-frame_alt_sol = Frame(master,bg='#8b658b')
-frame_alt_sol.place(relx=0.1,rely=0.21,relwidth=0.23,  relheight=0.5)
-frame_alt_sag = Frame(master,bg='#8b658b')
-frame_alt_sag.place(relx=0.34,rely=0.21,relwidth=0.56,  relheight=0.5 )
+# frame_ust = Frame(master,bg='#8b658b')
+# frame_ust.place(relx=0.1,rely=0.1,relwidth=0.8,  relheight=0.1)           
+# frame_alt_sol = Frame(master,bg='#8b658b')
+# frame_alt_sol.place(relx=0.1,rely=0.21,relwidth=0.23,  relheight=0.5)
+# frame_alt_sag = Frame(master,bg='#8b658b')
+# frame_alt_sag.place(relx=0.34,rely=0.21,relwidth=0.56,  relheight=0.5 )
 
 hatirlatma_tipi_etiket =Label(frame_ust,bg='#8b658b', text="Hatırlatma Tipi:", font='verdana 12 bold')
 hatirlatma_tipi_etiket.pack(padx=10, pady=10, side=LEFT)
