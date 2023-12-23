@@ -41,7 +41,7 @@ hatirlatma_tipi_etiket =Label(frame_ust,bg='#8b658b', text="Hatırlatma Tarihi:"
 #label kullanıcı ara yüzünde bir etiket oluşturmak için kullanılan method  = "Label" kelimesi, bir kullanıcı arayüzünde metin veya resim gibi bilgileri 
 #göstermek için kullanılan bir kontrol öğesini ifade eder. genelde metin için kullanılır
 
-# hatirlatma_tipi_etiket.pack(padx=10, pady=10, side=RIGHT )
+hatirlatma_tipi_etiket.pack(padx=10, pady=10, side=RIGHT )
 ##########################################################################3 UP SİDE END ###########################################################################
 ##########################################################################3 UNDER SİDE START ###########################################################################
 
